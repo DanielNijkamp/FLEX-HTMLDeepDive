@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="flexbox.css">
+</head>
+<script>
+    let fotonummer, fotobreedte, aantalfotos, fotoslider;
+    
+    function haalElementenOp(){
+        let fotoslider = document.getElementById("fotoslider");
+        console.log(fotoslider);
+        
+        let eersteFotoDiv = document.querySelector('.foto');
+        console.log(eersteFotoDiv);
+
+        let alleFotoDivs = document.querySelectorAll('.foto');
+        console.log(alleFotoDivs);
+
+        fotoslider.className = 'fotoslider';
+        fotoslider.innerHTML = 'Alle fotos vervangen door deze tekst!';
+        fotoslider.style.borderColor = '#0000FF';
+        fotoslider.style.borderStyle = 'solid';
+        fotoslider.style.borderWidth = '5px';
+        fotoslider.position = 'absolute';
+        fotoslider.left = '100px';
+    }
+
+        fotonummer=0;
+        fotobreedte=400;
+
+        fotoSlider = "fotoslider"
+        let volgendeButton="volgende-btn"
+        let vorigeButton="vorige-btn"
+
+    setupFotoslider();{
+        aantalfotos = fotoslider.children.length;
+        volgendeButton.addEventListener(click,volgendeFoto());
+        vorigeButton.addEventListener(click,vorigeFoto());
+        console.log("alertofzoidk")
+    }
+
+    function setupFotoslider(){
+        alert("Ja, het script werkt!");
+    }
+    function volgendeFoto(){
+        alert("volgende geklikt");
+        fotonummer += 1;
+        if (fotonummer === aantalfotos) {
+            fotonummer = 0;}
+        let afstandNaarLinks = -1 * (fotonummer * fotobreedte)
+        fotoslider.style.left = afstandNaarLinks + "px";
+    }
+    function vorigeFoto(){
+        alert("vorige geklikt");
+    }
+    
+  // Let op je zet hier de naam van de function ZONDER de ()
+  window.addEventListener('DOMContentLoaded', haalElementenOp)
+  setupFotoslider
+
+</script>
+<body>
+    <div class="viewport">
+        <div id="fotoslider">
+            <div class="foto"><img src="Fotos/kebab1.jpg"/></div>
+            <div class="foto"><img src="Fotos/kebab2.jpg"/></div>
+            <div class="foto"><img src="Fotos/kebab3.jpg"/></div>
+            <div class="foto"><img src="Fotos/kebab4.jpg"/></div>
+            <div class="foto"><img src="Fotos/kebab5.jpg"/></div>
+        </div>
+    </div>
+    <div id="controls">
+        <button id="vorige-btn">Vorige</button>
+        <button id="volgende-btn">Volgende</button>
+    </div>
+</body>
+</html>

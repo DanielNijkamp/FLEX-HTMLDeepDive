@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="flexbox.css">
+</head>
+<script>
+let fotonummer, fotobreedte, aantalfotos, fotoslider1;
+
+fotonummer = 0;
+fotobreedte = 600;
+
+fotoslider1 = "fotoslider"
+let volgendeKnop = "volgende-btn"
+let vorigeKnop = "vorige-btn"
+
+function setupFotoslider() {
+    alert("Ja, het script werkt!");
+    aantalfotos = fotoslider.children.length;
+    volgendeKnop.addEventListener(click,volgendeFoto)
+    }
+
+function volgendeFoto(){
+    fotonummer += 1;
+    if (fotonummer === aantalfotos) {
+    fotonummer = 0;
+    }
+    let afstandNaarLinks = -1 * (fotonummer * fotobreedte)
+    fotoslider.style.left = afstandNaarLinks + "500px";
+}
+
+</script>
+<body>
+    <div id="flexthingy">
+        <div class="viewport">
+            <div id="fotoslider">
+                <div class="foto"><img src="Fotos/kebab1.jpg"/></div>
+                <div class="foto"><img src="Fotos/kebab2.jpg"/></div>
+                <div class="foto"><img src="Fotos/kebab3.jpg"/></div>
+                <div class="foto"><img src="Fotos/kebab4.jpg"/></div>
+                <div class="foto"><img src="Fotos/kebab5.jpg"/></div>
+            </div>
+        </div>
+    </div>
+    <div id="controls">
+        <button id="vorige-btn">Vorige</button>
+        <button id="volgende-btn">Volgende</button>
+    </div>
+</body>
+</html>
